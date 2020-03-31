@@ -1,6 +1,6 @@
 # Random Story
 
-a simple SPA just for fun
+a simple SPA just for fun ([Click](https://0iseaux.github.io/random-story/) to try)
 
 -   HTML, CSS, JS
 -   each click generates a short story of several lines, with randomised characters, names and words.
