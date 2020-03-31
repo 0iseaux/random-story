@@ -1,0 +1,57 @@
+html {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: black;
+    padding: 5px;
+}
+
+#btnDiv {
+    display: block;
+    position: relative;
+    width: 200px;
+    background-color: blue;
+    padding: 5px;
+    border: 1px solid white;
+    background-color: rgba(256, 256, 256, 0);
+    color: darkgray;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5%;
+}
+
+#btn {
+    font-weight: 500;
+    text-align: center;
+}
+
+#imgDiv {
+    position: relative;
+    top: 30px;
+    max-width: 80%;
+    height: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    background-image: url('url') cover center no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+}
+
+#storyDiv {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 20px;
+    white-space: pre-wrap;
+    text-align: justify;
+    color: white;
+    font-size: 20px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    background-color: rgba(0, 0, 0, 0.4);
+}
