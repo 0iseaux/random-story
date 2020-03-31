@@ -430,6 +430,9 @@ function gen_story() {
 
     let adj1 = gen_general(adjs);
     let adj2 = gen_general(adjs);
+    while (adj1 === adj2) {
+        adj2 = gen_general(adjs);
+    }
     let line3 = `${pronouns[2]} friends are neither ${adj1} nor ${adj2}.`;
 
     let verb1 = gen_general(verbs_aux_w_ing);
@@ -456,6 +459,9 @@ function gen_story() {
 
     adj1 = gen_general(adjs);
     adj2 = gen_general(adjs);
+    while (adj1 === adj2) {
+        adj2 = gen_general(adjs);
+    }
     let line7 = `${name} is ${adj1} and ${adj2}.`;
     let line8 = `Be like ${name}.`;
 
