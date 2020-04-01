@@ -2,7 +2,7 @@
 
 const FLICKR_API_KEY = '17e98942500864136e138674ba25f8b0';
 
-const colours = [
+const COLOURS = [
     'aqua',
     'beige',
     'red',
@@ -29,7 +29,7 @@ const colours = [
     'silver',
 ];
 
-const creatures = [
+const CREATURES = [
     'wombat',
     'platypus',
     'cabybara',
@@ -61,7 +61,7 @@ const creatures = [
     'dinosaur',
 ];
 
-const verbs_aux_w_ing = [
+const VERBS_AUX_W_ING = [
     'loves',
     'likes',
     'dislikes',
@@ -72,7 +72,7 @@ const verbs_aux_w_ing = [
     'dreams of',
 ];
 
-const verbs_aux_w_inf = [
+const VERBS_AUX_W_INF = [
     'loves to',
     'likes to',
     'does not like to',
@@ -100,7 +100,7 @@ const verbs_aux_w_inf = [
     'tries not to',
 ];
 
-const verbs_intr_inf = [
+const VERBS_INTR_INF = [
     'run',
     'escape',
     'wander',
@@ -118,7 +118,7 @@ const verbs_intr_inf = [
     'crawl',
 ];
 
-const verbs_tr_inf = [
+const VERBS_TR_INF = [
     'eat',
     'drink',
     'have',
@@ -148,7 +148,7 @@ const verbs_tr_inf = [
     'cook',
 ];
 
-const verbs_intr_ing = [
+const VERBS_INTR_ING = [
     'playing',
     'running',
     'escaping',
@@ -169,7 +169,7 @@ const verbs_intr_ing = [
     'crying',
     'crawling',
 ];
-const verbs_tr_ing = [
+const VERBS_TR_ING = [
     'eating',
     'drinking',
     'buying',
@@ -200,7 +200,7 @@ const verbs_tr_ing = [
     'cooking',
 ];
 
-const verbs_intr = [
+const VERBS_INTR = [
     'runs',
     'escapes',
     'wanders',
@@ -220,7 +220,7 @@ const verbs_intr = [
     'cries',
     'crawls',
 ];
-const verbs_tr = [
+const VERBS_TR = [
     'eats',
     'drinks',
     'buys',
@@ -250,7 +250,7 @@ const verbs_tr = [
     'cooks',
 ];
 
-const food_drinks = [
+const FOOD_DRINKS = [
     'spinach',
     'fried eggs',
     'sausages',
@@ -285,7 +285,7 @@ const food_drinks = [
     'curries',
 ];
 
-const objs = [
+const OBJS = [
     'chairs',
     'desks',
     'phones',
@@ -310,7 +310,7 @@ const objs = [
     'troubles',
 ];
 
-const places = [
+const PLACES = [
     'in the sky',
     'on a bench',
     'on the moon',
@@ -328,7 +328,7 @@ const places = [
     'in the sauna',
 ];
 
-const adjs = [
+const ADJS = [
     'happy',
     'sad',
     'clever',
@@ -367,41 +367,41 @@ const adjs = [
     'confident',
 ];
 
-const advs = ['well', 'better', 'soon', 'often', 'less often', 'fast', 'faster', 'happily'];
+const ADVS = ['well', 'better', 'soon', 'often', 'less often', 'fast', 'faster', 'happily'];
 
-const gender_pronouns = [
+const GENDER_PRONOUNS = [
     ['He', 'he', 'His', 'his'],
     ['She', 'she', 'Her', 'her'],
 ];
 
-function gen_name_part() {
-    let name_part_length = Math.floor(Math.random() * (4 - 2) + 2);
-    let name_part = '-'.repeat(name_part_length);
-    name_part = name_part.split('');
-    for (let i = 0; i < name_part_length; i++) {
-        name_part[i] = String.fromCharCode(Math.floor(Math.random() * (123 - 97)) + 97);
+function generateNamePart() {
+    let namePartLength = Math.floor(Math.random() * (4 - 2) + 2);
+    let namePart = '-'.repeat(namePartLength);
+    namePart = namePart.split('');
+    for (let i = 0; i < namePartLength; i++) {
+        namePart[i] = String.fromCharCode(Math.floor(Math.random() * (123 - 97)) + 97);
     }
     while (
-        !name_part.includes('a') &&
-        !name_part.includes('e') &&
-        !name_part.includes('i') &&
-        !name_part.includes('o') &&
-        !name_part.includes('u')
+        !namePart.includes('a') &&
+        !namePart.includes('e') &&
+        !namePart.includes('i') &&
+        !namePart.includes('o') &&
+        !namePart.includes('u')
     ) {
-        name_part[Math.floor(Math.random() * name_part.length - 1)] = String.fromCharCode(
+        namePart[Math.floor(Math.random() * namePart.length - 1)] = String.fromCharCode(
             Math.floor(Math.random() * (123 - 97)) + 97,
         );
     }
-    name_part = name_part.join('');
-    return name_part;
+    namePart = namePart.join('');
+    return namePart;
 }
 
-function gen_name() {
-    let name_parts = [];
+function compileName() {
+    let nameParts = [];
     for (let i = 0; i < Math.floor(Math.random() * (4 - 2) + 2); i++) {
-        name_parts.push(gen_name_part());
+        nameParts.push(generateNamePart());
     }
-    let name = name_parts.join('');
+    let name = nameParts.join('');
     name = name.split('');
     name[0] = name[0].toUpperCase();
     name = name.join('');
@@ -409,58 +409,58 @@ function gen_name() {
 }
 
 function gen_gender() {
-    let ran_num = Math.floor(Math.random() * 2);
-    return gender_pronouns[ran_num];
+    let randomNum = Math.floor(Math.random() * 2);
+    return GENDER_PRONOUNS[randomNum];
 }
 
-function gen_general(word_list) {
-    return word_list[Math.floor(Math.random() * word_list.length)];
+function gen_general(wordList) {
+    return wordList[Math.floor(Math.random() * wordList.length)];
 }
 
 function gen_story() {
-    let name = gen_name();
+    let name = compileName();
     let pronouns = gen_gender();
-    let colour = gen_general(colours);
-    let creature = gen_general(creatures);
+    let colour = gen_general(COLOURS);
+    let creature = gen_general(CREATURES);
     let line1 = `Far, far away lives a ${colour} ${creature}. ${pronouns[2]} name is ${name}.`;
 
-    let verb = gen_general(verbs_tr);
-    let obj = gen_general(objs);
+    let verb = gen_general(VERBS_TR);
+    let obj = gen_general(OBJS);
     let line2 = `Every day ${pronouns[1]} ${verb} ${obj}.`;
 
-    let adj1 = gen_general(adjs);
-    let adj2 = gen_general(adjs);
+    let adj1 = gen_general(ADJS);
+    let adj2 = gen_general(ADJS);
     while (adj1 === adj2) {
-        adj2 = gen_general(adjs);
+        adj2 = gen_general(ADJS);
     }
     let line3 = `${pronouns[2]} friends are neither ${adj1} nor ${adj2}.`;
 
-    let verb1 = gen_general(verbs_aux_w_ing);
-    let verb2 = gen_general(verbs_tr_ing);
-    obj = gen_general(food_drinks);
-    let verb3 = gen_general(verbs_aux_w_inf);
-    let verb4 = gen_general(verbs_intr_inf);
-    let adv = gen_general(advs);
+    let verb1 = gen_general(VERBS_AUX_W_ING);
+    let verb2 = gen_general(VERBS_TR_ING);
+    obj = gen_general(FOOD_DRINKS);
+    let verb3 = gen_general(VERBS_AUX_W_INF);
+    let verb4 = gen_general(VERBS_INTR_INF);
+    let adv = gen_general(ADVS);
     let line4 = `${pronouns[0]} ${verb1} ${verb2} ${obj} very much and ${verb3} ${verb4} ${adv}.`;
 
-    verb1 = gen_general(verbs_aux_w_inf);
-    verb2 = gen_general(verbs_tr_inf);
-    obj = gen_general(objs);
-    let place = gen_general(places);
+    verb1 = gen_general(VERBS_AUX_W_INF);
+    verb2 = gen_general(VERBS_TR_INF);
+    obj = gen_general(OBJS);
+    let place = gen_general(PLACES);
     let line5 = `${pronouns[0]} ${verb1} always ${verb2} ${obj} ${place}.`;
 
-    let obj1 = gen_general(objs);
+    let obj1 = gen_general(OBJS);
     obj1 = obj1.split('');
     obj1[0] = obj1[0].toUpperCase();
     obj1 = obj1.join('');
-    let obj2 = gen_general(food_drinks);
-    verb = gen_general(verbs_tr_inf);
+    let obj2 = gen_general(FOOD_DRINKS);
+    verb = gen_general(VERBS_TR_INF);
     let line6 = `${pronouns[2]} motto is\: \'${obj1} are just like ${obj2}. Just ${verb} them.\'`;
 
-    adj1 = gen_general(adjs);
-    adj2 = gen_general(adjs);
+    adj1 = gen_general(ADJS);
+    adj2 = gen_general(ADJS);
     while (adj1 === adj2) {
-        adj2 = gen_general(adjs);
+        adj2 = gen_general(ADJS);
     }
     let line7 = `${name} is ${adj1} and ${adj2}.`;
     let line8 = `Be like ${name}.`;
