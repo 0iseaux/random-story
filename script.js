@@ -116,6 +116,7 @@ const VERBS_INTR_INF = [
     'laugh',
     'cry',
     'crawl',
+    'cook',
 ];
 
 const VERBS_TR_INF = [
@@ -146,6 +147,8 @@ const VERBS_TR_INF = [
     'fetch',
     'conquer',
     'cook',
+    'turn around',
+    'dance',
 ];
 
 const VERBS_INTR_ING = [
@@ -168,6 +171,9 @@ const VERBS_INTR_ING = [
     'laughing',
     'crying',
     'crawling',
+    'turning around',
+    'dancing',
+    'cooking',
 ];
 const VERBS_TR_ING = [
     'eating',
@@ -219,6 +225,9 @@ const VERBS_INTR = [
     'laughs',
     'cries',
     'crawls',
+    'turns around',
+    'dances',
+    'cooks',
 ];
 const VERBS_TR = [
     'eats',
@@ -283,6 +292,7 @@ const FOOD_DRINKS = [
     'onions',
     'garlic',
     'curries',
+    'plum tarts',
 ];
 
 const OBJS = [
@@ -300,14 +310,22 @@ const OBJS = [
     'problems',
     'computers',
     'flowers',
-    'truths',
+    'the truth',
     'realities',
+    'the reality',
+    'happiness',
+    'luck',
+    'melancholy',
     'tote bags',
     'carpets',
     'sofas',
     'scarves',
     'challenges',
     'troubles',
+    'fortune',
+    'toys',
+    'the world',
+    'life',
 ];
 
 const PLACES = [
@@ -326,6 +344,7 @@ const PLACES = [
     'in the air',
     'in a forest',
     'in the sauna',
+    'in another world',
 ];
 
 const ADJS = [
@@ -365,6 +384,8 @@ const ADJS = [
     'unreliable',
     'reliable',
     'confident',
+    'lucky',
+    'unlucky',
 ];
 
 const ADVS = ['well', 'better', 'soon', 'often', 'less often', 'fast', 'faster', 'happily'];
@@ -453,9 +474,17 @@ function gen_story() {
     obj1 = obj1.split('');
     obj1[0] = obj1[0].toUpperCase();
     obj1 = obj1.join('');
+    let be = 'are';
+    if (obj1[obj1.length - 1] !== 's') {
+        be = 'is';
+    }
     let obj2 = gen_general(FOOD_DRINKS);
+    let pron = 'them';
+    if (obj2[obj2.length - 1] !== 's') {
+        pron = 'it';
+    }
     verb = gen_general(VERBS_TR_INF);
-    let line6 = `${pronouns[2]} motto is\: \'${obj1} are just like ${obj2}. Just ${verb} them.\'`;
+    let line6 = `${pronouns[2]} motto is\: \'${obj1} ${be} just like ${obj2}. Just ${verb} ${pron}.\'`;
 
     adj1 = gen_general(ADJS);
     adj2 = gen_general(ADJS);
